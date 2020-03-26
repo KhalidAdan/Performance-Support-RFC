@@ -60,7 +60,7 @@ class SkeleTonBuilder {
         $skeleton->addBanner($banner);
         $skeleton->addMenu($banner);
         ...
-        //calling the render method wil lrender all of its children
+        //calling the render method will render all of its children
         $skeleton->render();
         
     }
