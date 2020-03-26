@@ -43,9 +43,17 @@ Once that is complete the view will start to be assembled via product class spec
 
 This document is the culmination of a couple weeks of introspection and research. Everything in here I learned very recently, and if this comes off as confusing that is completely understandable. I recommend looking at the resources section for a really good description of these topics and maybe even give a couple of examples a try. 
 
+I'm trying to find a good piece of software for creating UML diagrams to give more context about what classes we'll be building but I have yet to fond a great one. Any help here would be awesome.
+
 Also, I'm available for questions whenever.
 
 ## Resources
 
 https://sourcemaking.com/design_patterns/abstract_factory
+
 https://sourcemaking.com/design_patterns/chain_of_responsibility 
+
+https://medium.com/@devDeeJay/getting-started-with-design-patterns-for-beginners-d0032241b760 
+
+https://dev.to/thayseonofrio/how-to-get-started-with-design-patterns-iai 
+
