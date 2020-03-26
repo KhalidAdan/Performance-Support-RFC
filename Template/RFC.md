@@ -87,3 +87,5 @@ Calling render will then call the render functions of all child properties in se
     }
 
 ```
+
+What's happening here is that PHP's output buffer is being requested to start creating content, and this works recursively through the tree because each component has the ability to call render on its children. 
