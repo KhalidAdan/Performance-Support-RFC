@@ -29,6 +29,8 @@ URL -> KnowHow/topics/default.htm
 
 Template queries product information with KH's product id (118) and then the controller layer creates the product object and passes the product class to the abstract factory. 
 
+Once that is complete the view will start to be assembled via product class specific builders and returned to the skeleton.php file where a render function will be called.
+
 [RFC for the epss template](Template/RFC.md) *WIP*
 
 ## Management Solution

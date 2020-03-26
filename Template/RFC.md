@@ -2,7 +2,7 @@
 
 ## Controller
 
-Preamble: The term 'controller' and 'service' are generally the same thing **in our organization**. For the purposes of this RFC I'll be referencing controllers but they terms are interchangeable.
+**Preamble:** The term 'controller' and 'service' are generally the same thing *in our organization*. For the purposes of this RFC I'll be referencing controllers but they terms are interchangeable.
 
 The controller layer will largely be unchanged, it will be responsable for three main activities:
 
@@ -27,16 +27,45 @@ Because of the slot-in nature of EPSS functionality (meaning that depending on t
 
 1. Abstract factory 
 
+The point of the abstract factory is to create a family of objects needed for our application to run. It is created first and it has facotry methods inside which return objects based o nthe passed product class. More informationm about factory methods can be found here: [Factory Method](https://sourcemaking.com/design_patterns/factory_method). 
+
 ```php
 // create common components here, ex. All products send mail
 $this->mailService = \LTS\Core::getComponentFactory()->createComponent("MailService");
 // create X component based on the product class, and use that to create a family of objects. 
-$this->abstractFactory = \LTS\Core::getComponentFactory()->createComponent($this->product->getProductClass());
+$this->abstractFactory = new AbstractFactory($this->product->getProductClass());
 $this->dao = $this->abstractFactory->getDataAcessObject();
 $this->accessControlService = $this->abstractFactory->getAccessControlService();
 $this->ckeService = $this->abstractFactory->getCKEditorService();
-$this->skeletonBuilder = $this->abstractFactory->getBuilder();
+$this->skeletonBuilder = $this->abstractFactory->getSkeletonBuilder();
 
 ```
 
 2. Builders (and possibly a director) for view components
+
+The skeleton builder for the epss will take the given information (the product class) and use that to create a nested tree of components.
+
+```php
+
+class SkeleTonBuilder {
+
+    // constructor with product class property
+
+    public function buildSkeleton() 
+    {
+        $skeleton = new SkeletonView();
+        $banner = new Banner();
+        $menu = new Menu();
+        ...
+        $skeleton->addBanner($banner);
+        $skeleton->addMenu($banner);
+        ...
+        //calling the render method wil lrender all of its children
+        $skeleton->render();
+        
+    }
+}
+
+```
+
+The way rendering will work is still up in the air. I'm thinking of something like when an add method is called that method will then 
