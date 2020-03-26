@@ -30,9 +30,8 @@ Because of the slot-in nature of EPSS functionality (meaning that depending on t
 ```php
 // create common components here, ex. All products send mail
 $this->mailService = \LTS\Core::getComponentFactory()->createComponent("MailService");
-// create X component based on the product class, and use that to create a family of objects for the necessary features. 
+// create X component based on the product class, and use that to create a family of objects. 
 $this->abstractFactory = \LTS\Core::getComponentFactory()->createComponent($this->product->getProductClass());
-
 $this->dao = $this->abstractFactory->getDataAcessObject();
 $this->accessControlService = $this->abstractFactory->getAccessControlService();
 $this->ckeService = $this->abstractFactory->getCKEditorService();
