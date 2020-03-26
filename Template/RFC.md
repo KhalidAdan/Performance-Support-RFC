@@ -8,7 +8,7 @@ The controller layer will largely be unchanged, it will be responsable for three
 
 1. Retrieving and marshalling necessary information 
 2. Constructing correct objects based on product class
-3. Initializing view components
+3. Initializing/Rendering view components
 
 ### Retrieving Information
 
@@ -60,14 +60,14 @@ class SkeleTonBuilder {
         $skeleton->addBanner($banner);
         $skeleton->addMenu($banner);
         ...
-        //calling the render method will render all of its children
+        //calling the render method wil lrender all of its children
         $skeleton->render();
         
     }
 }
 
 ```
-
+## Initializing/Rendering view components
 Calling render will then call the render functions of all child properties in sequence. A simple example of a render function for an unordered list would be:
 
 ```php
@@ -88,4 +88,4 @@ Calling render will then call the render functions of all child properties in se
 
 ```
 
-What's happening here is that PHP's output buffer is being requested to start creating content, and this works recursively through the tree because each component has the ability to call render on its children. 
+What's happening here is that PHP's output buffer is being used to start adding content, and this works recursively through the tree because each component has the ability to call render on its children. The ul component is completed only when all listen items are finished being sent to the output buffer.
