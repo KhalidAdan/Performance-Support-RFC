@@ -83,6 +83,7 @@ Calling render will then call the render functions of all child properties in se
                 ?>
             </ul>
         <?php
+        return ob_get_clean();
     }
 
 ```
