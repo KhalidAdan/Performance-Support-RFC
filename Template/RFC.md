@@ -49,7 +49,7 @@ The skeleton builder for the epss will take the given information (the product c
 
 class SkeleTonBuilder {
 
-    // constructor with product class property
+    /** constructor with product class property */
 
     public function buildSkeleton() 
     {
@@ -68,4 +68,21 @@ class SkeleTonBuilder {
 
 ```
 
-The way rendering will work is still up in the air. I'm thinking of something like when an add method is called that method will then 
+Calling render will then call the render functions of all child properties in sequence. A simple example of a render function for an unordered list would be:
+
+```php
+    public function render()
+    {
+        ob_start();
+        ?>
+            <ul>
+                <?php
+                    foreach($listItems as $li):
+                        $li->render();
+                    endforeach;
+                ?>
+            </ul>
+        <?php
+    }
+
+```
