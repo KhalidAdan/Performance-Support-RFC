@@ -39,6 +39,19 @@ Once that is complete the view will start to be assembled via product class spec
 
 [RFC for Fusion](Fusion/RFC.md) 
 
+## Data Solution
+
+Another possible area for cleanup is our database solution. After almost 3 years of development, the model has grown and things have been added over time and I'd like a fresh take on how things work. 
+
+Entities:
+
+Pages
+Topics
+Products
+Menu
+Product classes
+
+
 ## Note to readers
 
 This document is the culmination of a couple weeks of introspection and research. Everything in here I learned very recently, and if this comes off as confusing that is completely understandable. I recommend looking at the resources section for a really good description of these topics and maybe even give a couple of examples a try. 
