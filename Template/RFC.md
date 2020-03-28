@@ -107,3 +107,24 @@ Here are a few of the issues I see:
 The template will need a way to handle access control, for things like access control. I'll flesh this section out later, but I'm thinking that the template's current access control will need ot be overhauled and maybe even merged with Fusion's.
 
 The reason why we'd merge with Fusion is so we could have one set of soltuions for things like access controls and moderation rights.
+
+Roles might be:
+
+* Admin
+* Developer
+* Designer
+* Translator
+* Comment Moderator
+
+And a role matrix might be:
+
+|                   | View Page | Edit Page | Run tools | CKE Unlock Page | Edit Page Attributes | Publish Page |
+|-------------------|-----------|-----------|-----------|-----------------|----------------------|--------------|
+| Admin             |     X     |     X     |     X     |        X        |           X          |       X      |
+| Developer         |     X     |     X     |     X     |        X        |           X          |              |
+| Designer          |     X     |     X     |     ~     |                 |           X          |              |
+| Translator        |     X     |     X     |     ~     |                 |           ~          |              |
+| Comment Moderator |     X     |     X     |     ~     |                 |                      |              |
+| No role           |     X     |           |           |                 |                      |              |
+
+Where ~ would mean that there are some very simple calls the user could make.
